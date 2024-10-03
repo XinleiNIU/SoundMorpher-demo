@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.85">
+    <title>SoundMorpher Demonstration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1%;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        /* Media queries for smaller screens */
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            tr {
+                margin-bottom: 10px; /* Add space between rows */
+            }
+            audio {
+                width: 100%;
+            }
+        }
+        .demo-block {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* Creates a 4x4 grid */
+            gap: 20px; /* Spacing between grid items */
+            margin-bottom: 40px; /* Space between demo blocks */
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        .demo-block2 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Creates a 4x4 grid */
+            gap: 20px; /* Spacing between grid items */
+            margin-bottom: 40px; /* Space between demo blocks */
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .demo-block-txt {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Creates a 4x4 grid */
+            gap: 20px; /* Spacing between grid items */
+            margin-bottom: 40px; /* Space between demo blocks */
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        .audio-item {
+            background: #fff;
+            padding: 1px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: fixed;
+            table-layout: fixed;
+        }
+
+        td,th {
+            text-align: center;
+            padding: 5px;
+            width: auto;
+            border: 1px dotted; black;
+        }
+        .narrow-column {
+            width: 30px; /* Set fixed width for the narrow column */
+        }
+        .audio-block {
+            transform: scale(1);
+            transform-origin: top left; 
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 8px;
+            background-color: white
+        }
+        audio {
+            width: 100%;
+
+        }
+        hr {
+            height: 2px; /* Thickness of the line */
+            background-color: #000; /* Color of the line */
+            border: none; /* Removes the default border */
+            margin: 20px 0; /* Adds vertical space around the line */
+        }
+        .center-text {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        .column {
+            width: 48%; /* Adjusts the width of each column */
+        }
+        .audio-row {
+            margin-bottom: 20px;
+        }
+        h2, h3,p {
+            text-align: center;
+        }
+      .vertical-line-right {
+        border-right: 1px solid lightgray;
+      }
+      .vertical-line-left {
+        border-left: 1px solid lightgray;
+      }
+    </style>
+</head>
+<body>
+
+<h1>Demonstration Page</h1>
+<h1>SoundMorpher: Perceptually-Uniform Sound Morphing with Diffusion Model</h1>
+
+
+<p>
+    This page demonstrates SoundMorpher, featuring a selection of morphed results from our experiments, including timbral morphing of musical instruments, dynamic music morphing, and environmental sound morphing. To ensure clarity and avoid potential misunderstanding, 
+    we use the sound perceptual distance proportion (SPDP) points 𝑝 to indicate how the morphed results are close to the source and target sounds. We hope you could enjoy our demonstartion and find some interesting sounds!
+</p>
+
+<hr>
+
+
+<h2>Timbral Morphing for Musical Instruments</h2>
+<p>This section demonstrates how SoundMorpher perform timbral morphing for musical instruments compared to SMT[1]. We provide 4 groups of comparison across different musical isntrument timbre.
+Please refer to paper Section 5.2.</p>
+
+<table>
+    <!-- Header Row -->
+    <tr>
+        <th>Input</th>
+        <th>Method</th>
+        <th>p = [0,1]</th>
+        <th>p  = [0.1,0.9]</th>
+        <th>p  = [0.2,0.8]</th>
+        <th>p  = [0.3,0.7]</th>
+        <th>p  = [0.4,0.6]</th>
+        <th>p  = [0.5,0.5]</th>
+        <th>p  = [0.6,0.4]</th>
+        <th>p  = [0.7,0.3]</th>
+        <th>p  = [0.8,0.2]</th>
+        <th>p  = [0.9,0.1]</th>
+        <th>p  = [1,0]</th>
+    </tr>
+
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td class="vertical-line-right"> Source <audio controls><source src="./Timbral_morph/Sample1/Input/guitar.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"><h4>SMT</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SMT/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr class="audio-block">
+        <td class="vertical-line-right">Target <audio controls><source src="./Timbral_morph/Sample1/Input/piano.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"> <h4>SoundMorpher</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample1/SoundMorpher/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td class="vertical-line-right"> Source <audio controls><source src="./Timbral_morph/Sample2/Input/kalimaba4.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"><h4>SMT</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SMT/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr class="audio-block">
+        <td class="vertical-line-right">Target <audio controls><source src="./Timbral_morph/Sample2/Input/harp4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"> <h4>SoundMorpher</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample2/SoundMorpher/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <!-- Block 3 -->
+     <tr class="audio-block">
+        <td class="vertical-line-right"> Source <audio controls><source src="./Timbral_morph/Sample3/Input/violin.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"><h4>SMT</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SMT/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr class="audio-block">
+        <td class="vertical-line-right">Target <audio controls><source src="./Timbral_morph/Sample3/Input/piano.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"> <h4>SoundMorpher</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample3/SoundMorpher/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <!-- Block 4 -->
+     <tr class="audio-block">
+        <td class="vertical-line-right"> Source <audio controls><source src="./Timbral_morph/Sample4/Input/guitar3.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"><h4>SMT</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SMT/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr class="audio-block">
+        <td class="vertical-line-right">Target <audio controls><source src="./Timbral_morph/Sample4/Input/piano3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="narrow-column"> <h4>SoundMorpher</h4></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.5.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.6.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.7.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/0.9.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Timbral_morph/Sample4/SoundMorpher/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+
+</table>
+
+<hr>
+
+<h2>Music Morphing</h2>
+
+<p>This section we demonstrate how SoundMorpher smoothly morph source music to the target music by dynamic morphing. Further explaination and experimental results, please refer to paper Section 5.4. In selected intermediate morphed samples, we provide some selected morphed samples within N=15 intermediate results to showcase how morphed results from SoundMorpher ensure intermediateness and correspondence between two inputs. This also showcase SoundMorpher can be applied to creative music composition in arts by giving two music compositions.</p>
+
+<table>
+    <!-- Header Row -->
+    <tr>
+        <th>Source</th>
+        <th>Target</th>
+        <th>Dynamic Morphing</th>
+        <th>&alpha; = 0</th>
+        <th>&alpha; = 1</th>
+        <th colspan="4">Selected intermediate morphed samples</th>
+    </tr>
+
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample1/Input/sample6.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample1/Input/sample10.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample1/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample1/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample1/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample1/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample1/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample1/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample1/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample2/Input/sample11.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample2/Input/sample17.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample2/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample2/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample2/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample2/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample2/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample2/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample2/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample3/Input/sample13.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample3/Input/sample14.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample3/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample3/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample3/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample3/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample3/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample3/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample3/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample4/Input/sample5.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample4/Input/sample19.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample4/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample4/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample4/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample4/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample4/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample4/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample4/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample5/Input/sample18.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample5/Input/sample14.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample5/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample5/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample5/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample5/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample5/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample5/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample5/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample6/Input/sample6.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample6/Input/sample8.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample6/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample6/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample6/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample6/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample6/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample6/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample6/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample7/Input/sample5.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample7/Input/sample17.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample7/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample7/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample7/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample7/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample7/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample7/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample7/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Music_morph/Sample8/Input/sample19.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample8/Input/sample1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-right"><audio controls><source src="./Music_morph/Sample8/dynamic_morph.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample8/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample8/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Music_morph/Sample8/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample8/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample8/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Music_morph/Sample8/a4.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+</table>
+<hr>
+
+<h2>Environmental Sound Morphing</h2>
+
+<p>This section we demonstrate how SoundMorpher smoothly morph source environmental sound to the target environmental sound cross different categories. Source and target audio recordings are from ESC50 dataset. Further explaination and experimental results, please refer to paper Section 5.3. This section also includes failure cases with abrupt transitions for SoundMorpher that two input sounds as significant semantic differences in content.</p>
+
+<h3>1. Dog and cat vocial morphing</h3>
+<table>
+    <!-- Header Row -->
+    <tr>
+        <th>Source</th>
+        <th>Target</th>
+        <th>p = [0,1]</th>
+        <th>p = [0.25,0.75]</th>
+        <th>p = [0.5,0.5]</th>
+        <th>p = [0.75,0.25]</th>
+        <!-- <th colspan="3"> Intermediate morphed samples between &alpha; = 0 and &alpha; = 1</th> -->
+        <th>p = [1,0]</th>
+    </tr>
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample1/Input/3-95694-A-5.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample1/Input/3-155312-A-0.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample1/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample1/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample1/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample1/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample1/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    </tr>
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample2/Input/2-83934-B-5.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample2/Input/3-155312-A-0.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample2/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample2/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample2/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample2/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample2/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample3/Input/3-95695-B-5.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample3/Input/1-32318-A-0.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample3/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample3/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample3/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample3/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample3/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+</table>
+
+<h3>2. Baby crying and laughing human sounds morphing</h3>
+
+<table>
+    <!-- Header Row -->
+    <tr>
+        <th>Source</th>
+        <th>Target</th>
+        <th>p = [0,1]</th>
+        <th>p = [0.25,0.75]</th>
+        <th>p = [0.5,0.5]</th>
+        <th>p = [0.75,0.25]</th>
+        <!-- <th colspan="3"> Intermediate morphed samples between &alpha; = 0 and &alpha; = 1</th> -->
+        <th>p = [1,0]</th>
+    </tr>
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample4/Input/1-60997-A-20.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample4/Input/4-132803-A-26.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample4/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample4/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample4/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample4/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample4/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample5/Input/3-152007-B-20.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample5/Input/5-242932-B-26.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample5/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample5/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample5/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample5/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample5/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample6/Input/1-211527-C-20.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample6/Input/1-36164-B-26.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample6/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample6/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample6/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample6/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample6/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+</table>
+
+<h3>3. Church bells and clock alarm sounds morphing</h3>
+
+<table>
+    <!-- Header Row -->
+    <tr>
+        <th>Source</th>
+        <th>Target</th>
+        <th>p = [0,1]</th>
+        <th>p = [0.25,0.75]</th>
+        <th>p = [0.5,0.5]</th>
+        <th>p = [0.75,0.25]</th>
+        <th>p = [1,0]</th>
+
+    </tr>
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample7/Input/2-89516-A-37.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample7/Input/3-98193-A-46.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample7/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample7/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample7/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample7/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample7/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    </tr>
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample8/Input/1-72195-B-37.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample8/Input/5-188716-A-46.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample8/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample8/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample8/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample8/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample8/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample9/Input/2-117116-A-37.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample9/Input/4-150364-B-46.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample9/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample9/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample9/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample9/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample9/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+
+</table>
+
+<h3>4. Wood door knocking and clapping sounds morphing</h3>
+
+<table>
+    <!-- Header Row -->
+    <tr>
+        <th>Source</th>
+        <th>Target</th>
+        <th>p = [0,1]</th>
+        <th>p = [0.25,0.75]</th>
+        <th>p = [0.5,0.5]</th>
+        <th>p = [0.75,0.25]</th>
+        <th>p = [1,0]</th>
+
+    </tr>
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample10/Input/2-76408-B-22.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample10/Input/1-81001-A-30.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample10/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample10/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample10/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample10/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample10/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    </tr>
+    <!-- Block 1 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample11/Input/1-104089-B-22.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample11/Input/2-114254-A-30.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample11/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample11/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample11/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample11/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample11/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+    <!-- Block 2 -->
+    <tr class="audio-block">
+        <td><audio controls><source src="./Sound_morph/Sample12/Input/1-104089-B-22.wav" type="audio/mp3">
+                Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample12/Input/4-182039-A-30.wav"  type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td class="vertical-line-left"><audio controls><source src="./Sound_morph/Sample12/0.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample12/a1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample12/a2.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample12/a3.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+        <td><audio controls><source src="./Sound_morph/Sample12/1.wav" type="audio/mpeg">Your browser does not support the audio element.</audio></td>
+    </tr>
+
+</table>
+
+<hr>
+<h3> Reference</h3>
+
+[1] Marcelo Caetano. Morphing musical instrument sounds with the sinusoidal model in the sound
+morphing toolbox. In International Symposium on Computer Music Multidisciplinary Research,
+pp. 481–503. Springer, 2019.
+</body>
+</html>
