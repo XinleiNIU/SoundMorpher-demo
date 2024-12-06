@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.85">
+    <title>SoundMorpher Demonstration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 5%;
+            margin-top: 2%;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .example {
+            margin-bottom: 20px;
+        }
+        .spectrogram-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .spectrogram-item {
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .spectrogram-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        audio {
+            margin-top: 10px;
+            width: 100%;
+        }
+        .toc {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        .toc h2 {
+            margin-top: 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .toc ul li {
+            margin: 10px 0;
+        }
+        .toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc ul li a:hover {
+            text-decoration: underline;
+        }
+
+        figure {
+            display: inline-block;
+            margin: 10%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        figure img {
+            max-width: 70%;
+            height: auto;
+        }
+        figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Demonstration Page</h1>
+
+<h1>SoundMorpher: Perceptually-Uniform Sound Morphing with Diffusion Model</h1>
+
+
+<p> This page demonstrates SoundMorpher, featuring a selection of morphed results from our experiments, including timbral morphing of musical instruments, dynamic music morphing and environmental sound morphing. We hope you could enjoy our demonstartion and find some interesting sounds!</p>
+
+<hr>
+
+    <div class="toc">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="https://arxiv.org/pdf/2410.02144"> 1. Original paper.</a></li>
+            
+            <li><a href="Timbre_morph.html">2. Timbral morphing for musical instrument.</a></li>
+            
+            <li><a href="Muisc_morph.html">3. Music morphing.</a></li>
+            
+            <li><a href="Environmental_sound_morph.html">4. Environmental sound morphing (ESC50 and AudioCaps).</a></li>
+
+            <li><a href="SoundMorpher_compare.html">5. Environmental sound morphing (comparison with MorphFader).</a></li>
+
+            <li><a href="https://github.com/XinleiNIU/SoundMorpher">6. Implementation codes.</a></li>
+        </ul>
+    </div>
+
+<hr>
+<h2>Overview pipeline of SoundMorpher</h2>
+    <figure>
+        <img src="./Figure/SoundMorpher_pipeline.png" alt="Description of the image">
+        <figcaption>An overview pipeline of SoundMorpher</figcaption>
+    </figure>
+<hr>
+
+<h2>Citation</h2>
+<p>If you are interested in our paper, please cite as below:</p>
+
+<p>Niu, Xinlei, Jing Zhang, and Charles Patrick Martin. "SoundMorpher: Perceptually-Uniform Sound Morphing with Diffusion Model." arXiv preprint arXiv:2410.02144 (2024).</p>
+</body>
+</html>
