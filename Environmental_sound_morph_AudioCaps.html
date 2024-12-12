@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.85">
+    <title>SoundMorpher Demonstration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10%;
+            margin-top: 2%;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .example {
+            margin-bottom: 20px;
+        }
+        .spectrogram-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .spectrogram-item {
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .spectrogram-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        audio {
+            margin-top: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<h1>SoundMorpher: Perceptually-Uniform Sound Morphing with Diffusion Model</h1>
+
+<a href="index.html"><strong>Return index page</strong></a>
+
+<h3>Enviromental Sound Morphing (AudioCaps)</h3>
+
+
+<!-- <p> SMT is a MATLAB based timbre morphing technique that performs isolate musical instrument morphing.</p> -->
+<p>This section provide additional demonstration of SoundMorpher on <strong> complex environmental sounds </strong> which sourced from AudioCaps dataset, each example pair are randomly chosen from AudioCaps dataset. In this experiment, we set N=10. The AudioCaps dataset are sourced from <a href="https://audiocaps.github.io/"> AudioCaps-git</a>. </p>
+<br>
+
+<hr>
+
+ <div class="section">
+        <h2>Example 1</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source audio</p>
+                <img src="./Sound_morph/Sample13/Input/Y0_ogYGDGDco.png" alt="Spectrogram α=0.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/Input/Y0_ogYGDGDco.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target audio</p>
+                <!-- <p> <br></p> -->
+                <img src="./Sound_morph/Sample13/Input/Y0a8acU2Svn8.png" alt="Spectrogram α=0.25">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/Input/Y0a8acU2Svn8.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+
+        </div>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>α=0.0</p>
+                <img src="./Sound_morph/Sample13/0.png" alt="Spectrogram α=0.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/0.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.25</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a1.png" alt="Spectrogram α=0.25">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.5</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a2.png" alt="Spectrogram α=0.5">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a2.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.75</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a3.png" alt="Spectrogram α=0.75">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a3.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a4.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a4.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a5.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a5.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a6.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a6.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a7.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a7.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample13/a8.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/a8.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>α=1.0</p>
+                <img src="./Sound_morph/Sample13/1.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample13/1.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+
+ <div class="section">
+        <h2>Example 2</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source audio</p>
+                <img src="./Sound_morph/Sample14/Input/Y0a6ss8FtrZo.png" alt="Spectrogram α=0.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/Input/Y0a6ss8FtrZo.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target audio</p>
+                <!-- <p> <br></p> -->
+                <img src="./Sound_morph/Sample14/Input/Y0a9wVat2PWk.png" alt="Spectrogram α=0.25">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/Input/Y0a9wVat2PWk.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+
+        </div>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>α=0.0</p>
+                <img src="./Sound_morph/Sample14/0.png" alt="Spectrogram α=0.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/0.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.25</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a1.png" alt="Spectrogram α=0.25">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.5</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a2.png" alt="Spectrogram α=0.5">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a2.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.75</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a3.png" alt="Spectrogram α=0.75">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a3.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a4.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a4.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a5.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a5.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a6.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a6.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a7.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a7.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample14/a8.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/a8.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>α=1.0</p>
+                <img src="./Sound_morph/Sample14/1.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample14/1.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+
+ <div class="section">
+        <h2>Example 1</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source audio</p>
+                <img src="./Sound_morph/Sample1/Input/Y0_ogYGDGDco.png" alt="Spectrogram α=0.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/Input/Y0_ogYGDGDco.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target audio</p>
+                <!-- <p> <br></p> -->
+                <img src="./Sound_morph/Sample1/Input/Y0a8acU2Svn8.png" alt="Spectrogram α=0.25">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/Input/Y0a8acU2Svn8.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+
+        </div>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>α=0.0</p>
+                <img src="./Sound_morph/Sample1/0.png" alt="Spectrogram α=0.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/0.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.25</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a1.png" alt="Spectrogram α=0.25">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.5</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a2.png" alt="Spectrogram α=0.5">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a2.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.75</p> -->
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a3.png" alt="Spectrogram α=0.75">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a3.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a4.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a4.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a5.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a5.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a6.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a6.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a7.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a7.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+                <img src="./Sound_morph/Sample1/a8.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/a8.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>α=1.0</p>
+                <img src="./Sound_morph/Sample1/1.png" alt="Spectrogram α=1.0">
+                <audio controls>
+                    <source src="./Sound_morph/Sample1/1.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<a href="index.html"><strong>Return index page</strong></a>
+</html>

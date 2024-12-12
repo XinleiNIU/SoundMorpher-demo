@@ -50,43 +50,37 @@
 
 <h1>SoundMorpher: Perceptually-Uniform Sound Morphing with Diffusion Model</h1>
 
+<a href="index.html"><strong>Return index page</strong></a>
+
+<h3>Ablation Study</h3>
 
 
-<h3>Music Morphing</h3>
-
-
-<p>This page contains demonstration of music morphing. In this demonstration, we provide original audio samples for source and target music, as well as dynamic morphed music by SoundMorpher. We also provide some randomly selected intermediate morphed samples in the morph sequences as well as two reconstructed end points α=0.0 and α=1.0. Please note that the intermediate morphed music samples corresponde to source and targer music; however, it is not a simply cross fading music, but a independent music composition shares features in-between source music and target music. This also showcase SoundMorpher can be applied to creative music composition in arts by giving two music compositions.</p>
+<p>This page contains demonstration for ablation studies discussed in Paper Section V.E.</p>
 <br>
 
 <hr>
 
 
+<h3 id="section1">1. Ablation study on sound perceptual features</h3>
     <div class="section">
         <h2>Example 1</h2>
         <div class="spectrogram-container">
             <div class="spectrogram-item">
                 <p>Source music</p>
-                <img src="./Music_morph/Sample1/Input/source.png" alt="Spectrogram α=0.0">
                 <audio controls>
-                    <source src="./Music_morph/Sample1/Input/sample15.wav"  type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample1/Input/sample15.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p>Target music</p>
-                <img src="./Music_morph/Sample1/Input/target.png" alt="Spectrogram α=0.0">
                 <audio controls>
-                    <source src="./Music_morph/Sample1/Input/sample7.wav"  type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample1/Input/sample7.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample1/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample1/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+                <p> <br></p>
             </div>
   <!--           <div class="spectrogram-item">
                 <p> <br></p>
@@ -97,56 +91,41 @@
             <div class="spectrogram-item">
                 <p> <br></p>
             </div>
-
         </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
+
         <div class="spectrogram-container">
             <div class="spectrogram-item">
-                <p> <br></p>
+                <p>(log) Mel-Spectrogram</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample1/a1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample1/Mel-spec/dynamic_morph.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p> <br></p>
+                <p>MFCCs</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample1/1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample1/MFCC/dynamic_morph.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p> <br></p>
+                <p>Reduced (log) Mel Spectrogram (n=2)</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample1/a2.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample1/PCA-N2/dynamic_morph.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p> <br></p>
+                <p>Reduced (log) Mel Spectrogram (n=3)</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample1/a3.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample1/PCA-N3/dynamic_morph.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p> <br></p>
+                <p>Spectral Contras</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample1/a4.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=0.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample1/0.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=1.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample1/1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample1/Spec_contra/dynamic_morph.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
@@ -154,32 +133,25 @@
     </div>
 
 
-    <div class="section">
+        <div class="section">
         <h2>Example 2</h2>
         <div class="spectrogram-container">
             <div class="spectrogram-item">
                 <p>Source music</p>
-                <img src="./Music_morph/Sample2/Input/source.png" alt="Spectrogram α=0.0">
                 <audio controls>
-                    <source src="./Music_morph/Sample2/Input/sample18.wav"  type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample2/Input/sample18.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p>Target music</p>
-                <img src="./Music_morph/Sample2/Input/target.png" alt="Spectrogram α=0.0">
                 <audio controls>
-                    <source src="./Music_morph/Sample2/Input/sample9.wav"  type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample2/Input/sample9.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample2/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample2/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+                <p> <br></p>
             </div>
   <!--           <div class="spectrogram-item">
                 <p> <br></p>
@@ -190,56 +162,624 @@
             <div class="spectrogram-item">
                 <p> <br></p>
             </div>
-
         </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
+
         <div class="spectrogram-container">
             <div class="spectrogram-item">
-                <p> <br></p>
+                <p>(log) Mel-Spectrogram</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample2/a1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample2/Mel-spec/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>MFCCs</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample2/MFCC/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Reduced (log) Mel Spectrogram (n=2)</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample2/PCA-N2/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Reduced (log) Mel Spectrogram (n=3)</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample2/PCA-N3/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Spectral Contras</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample2/Spec_contra/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+
+<div class="section">
+        <h2>Example 3</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source music</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample3/Input/sample5.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target music</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample3/Input/sample18.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+        </div>
+
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>(log) Mel-Spectrogram</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample2/1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample3/Mel-spec/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>MFCCs</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample3/MFCC/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Reduced (log) Mel Spectrogram (n=2)</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample3/PCA-N2/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Reduced (log) Mel Spectrogram (n=3)</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample3/PCA-N3/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Spectral Contras</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample3/Spec_contra/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+        <div class="section">
+        <h2>Example 4</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source music</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample4/Input/sample6.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target music</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample4/Input/sample8.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p> <br></p>
+            </div>
+  <!--           <div class="spectrogram-item">
+                <p> <br></p>
+            </div> -->
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+        </div>
+
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>(log) Mel-Spectrogram</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample2/a2.wav" type="audio/mpeg">
+                    <source src="./Ablation/Features/Sample4/Mel-spec/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>MFCCs</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample4/MFCC/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Reduced (log) Mel Spectrogram (n=2)</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample4/PCA-N2/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Reduced (log) Mel Spectrogram (n=3)</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample4/PCA-N3/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Spectral Contras</p>
+                <audio controls>
+                    <source src="./Ablation/Features/Sample4/Spec_contra/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+
+<h3 id="section2">2. Ablation study on LoRA rank</h3>
+
+<div class="section">
+        <h2>Example 1</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source music</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/Input/sample6.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target music</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/Input/sample8.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p> <br></p>
+            </div>
+  <!--           <div class="spectrogram-item">
+                <p> <br></p>
+            </div> -->
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+        </div>
+
+        <h3>Reconstruction α=0.0 </h3>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>wo LoRA</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample2/a3.wav" type="audio/mpeg">
+                    <source src="./Ablation/LoRA/Sample1/R=0/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 4</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=4/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 8</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=8/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 16</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=16/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 32</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=32/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <h3>Reconstruction α=1.0 </h3>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>wo LoRA</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=0/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 4</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=4/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 8</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=8/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 16</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=16/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 32</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=32/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <h3>Dynamic morph</h3>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>wo LoRA</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=0/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 4</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=4/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 8</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=8/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 16</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=16/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 32</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample1/R=32/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+<div class="section">
+        <h2>Example 2</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source music</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/Input/sample14.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target music</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/Input/sample2.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p> <br></p>
+            </div>
+  <!--           <div class="spectrogram-item">
+                <p> <br></p>
+            </div> -->
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+        </div>
+
+        <h3>Reconstruction α=0.0 </h3>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>wo LoRA</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample2/a4.wav" type="audio/mpeg">
+                    <source src="./Ablation/LoRA/Sample2/R=0/0.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p> α=0.0</p>
+                <p>r = 4</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample2/0.wav" type="audio/mpeg">
+                    <source src="./Ablation/LoRA/Sample2/R=4/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 8</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=8/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 16</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=16/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 32</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=32/0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <h3>Reconstruction α=1.0 </h3>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>wo LoRA</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=0/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 4</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=4/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 8</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=8/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 16</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=16/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 32</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=32/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <h3>Dynamic morph</h3>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>wo LoRA</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=0/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 4</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=4/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 8</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=8/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 16</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=16/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>r = 32</p>
+                <audio controls>
+                    <source src="./Ablation/LoRA/Sample2/R=32/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+<hr>
+<h3 id="section3">3. Failure case</h3>
+   <div class="section">
+        <h2>Example 1</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source audio</p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample1/Input/3-95695-B-5.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target audio</p>
+                <!-- <p> <br></p> -->
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample1/Input/1-32318-A-0.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+
+        </div>
+        <!-- <h4>SoundMorpher</h4> -->
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>α=0.0</p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample1/0.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.25</p> -->
+                <p> <br></p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample1/a1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.5</p> -->
+                <p> <br></p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample1/a2.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.75</p> -->
+                <p> <br></p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample1/a3.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p> α=1.0</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample2/1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample1/1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Example 2</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source audio</p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample2/Input/1-211527-C-20.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target audio</p>
+                <!-- <p> <br></p> -->
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample2/Input/1-36164-B-26.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+
+        </div>
+        <!-- <h4>SoundMorpher</h4> -->
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>α=0.0</p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample2/0.wav" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.25</p> -->
+                <p> <br></p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample2/a1.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.5</p> -->
+                <p> <br></p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample2/a2.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <!-- <p>α=0.75</p> -->
+                <p> <br></p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample2/a3.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> α=1.0</p>
+                <audio controls>
+                    <source src="./Ablation/Failure/Sample2/1.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
@@ -250,32 +790,23 @@
         <h2>Example 3</h2>
         <div class="spectrogram-container">
             <div class="spectrogram-item">
-                <p>Source music</p>
-                <img src="./Music_morph/Sample3/Input/source.png" alt="Spectrogram α=0.0">
+                <p>Source audio</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample3/Input/sample13.wav"  type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample3/Input/1-115920-A-22.wav" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p>Target music</p>
-                <img src="./Music_morph/Sample3/Input/target.png" alt="Spectrogram α=0.0">
+                <p>Target audio</p>
+                <!-- <p> <br></p> -->
                 <audio controls>
-                    <source src="./Music_morph/Sample3/Input/sample14.wav"  type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample3/Input/5-218981-A-30.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample3/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample3/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-  <!--           <div class="spectrogram-item">
                 <p> <br></p>
-            </div> -->
+            </div>
             <div class="spectrogram-item">
                 <p> <br></p>
             </div>
@@ -284,519 +815,51 @@
             </div>
 
         </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
+        <!-- <h4>SoundMorpher</h4> -->
         <div class="spectrogram-container">
             <div class="spectrogram-item">
-                <p> <br></p>
+                <p>α=0.0</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample3/a1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample3/0.wav" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
+                <!-- <p>α=0.25</p> -->
                 <p> <br></p>
                 <audio controls>
-                    <source src="./Music_morph/Sample3/1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample3/a1.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
+                <!-- <p>α=0.5</p> -->
                 <p> <br></p>
                 <audio controls>
-                    <source src="./Music_morph/Sample3/a2.wav" type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample3/a2.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
+                <!-- <p>α=0.75</p> -->
                 <p> <br></p>
                 <audio controls>
-                    <source src="./Music_morph/Sample3/a3.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample3/a4.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=0.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample3/0.wav" type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample3/a3.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="spectrogram-item">
                 <p> α=1.0</p>
                 <audio controls>
-                    <source src="./Music_morph/Sample3/1.wav" type="audio/mpeg">
+                    <source src="./Ablation/Failure/Sample3/1.wav"  type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
         </div>
     </div>
 
-    <div class="section">
-        <h2>Example 4</h2>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p>Source music</p>
-                <img src="./Music_morph/Sample4/Input/source.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample4/Input/sample12.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Target music</p>
-                <img src="./Music_morph/Sample4/Input/target.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample4/Input/sample8.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample4/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample4/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-  <!--           <div class="spectrogram-item">
-                <p> <br></p>
-            </div> -->
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-
-        </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample4/a1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample4/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample4/a2.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample4/a3.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample4/a4.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=0.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample4/0.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=1.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample4/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Example 5</h2>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p>Source music</p>
-                <img src="./Music_morph/Sample5/Input/source.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample5/Input/sample18.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Target music</p>
-                <img src="./Music_morph/Sample5/Input/target.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample5/Input/sample14.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample5/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample5/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-  <!--           <div class="spectrogram-item">
-                <p> <br></p>
-            </div> -->
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-
-        </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample5/a1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample5/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample5/a2.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample5/a3.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample5/a4.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=0.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample5/0.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=1.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample5/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Example 6</h2>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p>Source music</p>
-                <img src="./Music_morph/Sample6/Input/source.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample6/Input/sample6.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Target music</p>
-                <img src="./Music_morph/Sample6/Input/target.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample6/Input/sample8.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample6/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample6/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-  <!--           <div class="spectrogram-item">
-                <p> <br></p>
-            </div> -->
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-
-        </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample6/a1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample6/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample6/a2.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample6/a3.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample6/a4.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=0.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample6/0.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=1.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample6/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Example 7</h2>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p>Source music</p>
-                <img src="./Music_morph/Sample7/Input/source.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample7/Input/sample14.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Target music</p>
-                <img src="./Music_morph/Sample7/Input/target.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample7/Input/sample8.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample7/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample7/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-  <!--           <div class="spectrogram-item">
-                <p> <br></p>
-            </div> -->
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-
-        </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample7/a1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample7/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample7/a2.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample7/a3.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample7/a4.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=0.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample7/0.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=1.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample7/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Example 8</h2>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p>Source music</p>
-                <img src="./Music_morph/Sample8/Input/source.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample8/Input/sample19.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Target music</p>
-                <img src="./Music_morph/Sample8/Input/target.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample8/Input/sample1.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p>Dynamic morph music from source to target</p>
-                <img src="./Music_morph/Sample8/dynamic_morph.png" alt="Spectrogram α=0.0">
-                <audio controls>
-                    <source src="./Music_morph/Sample8/dynamic_morph.wav"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-  <!--           <div class="spectrogram-item">
-                <p> <br></p>
-            </div> -->
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-            </div>
-
-        </div>
-        <p>Below provides intermediate morphed samples and reconstructed source music and target music.</p>
-        <div class="spectrogram-container">
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample8/a1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample8/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample8/a2.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample8/a3.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> <br></p>
-                <audio controls>
-                    <source src="./Music_morph/Sample8/a4.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=0.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample8/0.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="spectrogram-item">
-                <p> α=1.0</p>
-                <audio controls>
-                    <source src="./Music_morph/Sample8/1.wav" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>
-    </div>
+<a href="index.html"><strong>Return index page</strong></a>
+<!-- <hr> -->
 
 </body>
 </html>

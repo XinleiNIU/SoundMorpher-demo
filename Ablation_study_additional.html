@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.85">
+    <title>SoundMorpher Demonstration</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 15%;
+            margin-top: 2%;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .example {
+            margin-bottom: 20px;
+        }
+        .spectrogram-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .spectrogram-item {
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .spectrogram-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        audio {
+            margin-top: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<h1>SoundMorpher: Perceptually-Uniform Sound Morphing with Diffusion Model</h1>
+
+<a href="index.html"><strong>Return index page</strong></a>
+
+<h3>Additional Ablation Study</h3>
+
+
+<p>This page provides additional details and ablation study on Convex CFG scheduling used in SoundMorpher. </p>
+<br>
+
+<hr>
+<h2> Background for Classifier-free Guidance (CFG). </h2>
+ Controllable generation can be achieved by using guidance at each sampling step in diffusion model. When a conditional and unconditional diffusion models are jointly trained, samples can be obtained by CFG [1]. In AudioLDM2 [2], the the conditional and unconditional noise esitimation becomes 
+<div>
+        \[
+     \hat{\epsilon}_{\theta}(z_t,t,E) := w \epsilon_\theta(z_t,t,E) + (1-w) \epsilon_\theta (z_t,t,\varnothing)
+     \]
+</div>
+where \(w\) determines the guidance scale.
+
+<h2> Convex CFG scheduling. </h2>
+Followin [3], we involve a convex CFG scheduling in SoundMorpher to boost morphing quality which is defined as 
+<div>
+        \[
+    w_\alpha = w_{max} - 2(w_{max} - w_{min})|\alpha-0.5|
+     \]
+</div>
+where \(w\)  is the guidance scale, \(\alpha\) is the morph factor.\(w_{max}\) and \(w_{min}\) are predefined maximum and minimum guidance scales.
+
+<h2> Ablation study on classifier-free guidance (CFG) scales </h2>
+In this experiment, we explore impacts of CFG scales on SoundMorpher, we conduct an ablation study on music morphing task with \(N=15\) on different sets of max-min CFG scales in TABLE I. According to our experimental results, maximum scale controls correspondence quality and smoothness quality of morphed results, whereas higher maximum scale leads to a lower \(MFCCs_{\mathcal{E}}\) and higher \(CDPAM_{mean} \pm CDPA_{std}\). In contrast,  minimum scale controls intermediate quality of morphed results, where higher minimum scale leads to higher \(CDPAM_{T}\). 
+
+
+    <figure>
+        <img src="./Figure/Table1.png" alt="Table1">
+    </figure>
+
+    <div class="section">
+        <h2>Example 1</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source music</p>
+                <img src="./Ablation/CFG/Sample1/Input/sample15.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample1/Input/sample15.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target music</p>
+                <img src="./Ablation/CFG/Sample1/Input/sample7.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample1/Input/sample7.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+  <!--           <div class="spectrogram-item">
+                <p> <br></p>
+            </div> -->
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+        </div>
+
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 3, w_{min} = 1.5\) </p>
+                <img src="./Ablation/CFG/Sample1/1.5-3/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample1/1.5-3/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 4, w_{min} = 1.5\)</p>
+                <img src="./Ablation/CFG/Sample1/1.5-4/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample1/1.5-4/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 5, w_{min} = 1.5\)</p>
+                <img src="./Ablation/CFG/Sample1/1.5-5/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample1/1.5-5/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 4, w_{min} = 2\)</p>
+                <img src="./Ablation/CFG/Sample1/2-4/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample1/2-4/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 3, w_{min} = 5\)</p>
+                <img src="./Ablation/CFG/Sample1/3-5/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample1/3-5/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>Example 2</h2>
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>Source music</p>
+                <img src="./Ablation/CFG/Sample2/Input/sample18.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample2/Input/sample18.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>Target music</p>
+                <img src="./Ablation/CFG/Sample2/Input/sample9.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample2/Input/sample9.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+  <!--           <div class="spectrogram-item">
+                <p> <br></p>
+            </div> -->
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+            <div class="spectrogram-item">
+                <p> <br></p>
+            </div>
+        </div>
+
+        <div class="spectrogram-container">
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 3, w_{min} = 1.5\) </p>
+                <img src="./Ablation/CFG/Sample2/1.5-3/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample2/1.5-3/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 4, w_{min} = 1.5\)</p>
+                <img src="./Ablation/CFG/Sample2/1.5-4/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample2/1.5-4/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 5, w_{min} = 1.5\)</p>
+                <img src="./Ablation/CFG/Sample2/1.5-5/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample2/1.5-5/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 4, w_{min} = 2\)</p>
+                <img src="./Ablation/CFG/Sample2/2-4/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample2/2-4/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="spectrogram-item">
+                <p>\(w_{max} = 3, w_{min} = 5\)</p>
+                <img src="./Ablation/CFG/Sample2/3-5/dynamic_morph.png" alt="Spectrogram">
+                <audio controls>
+                    <source src="./Ablation/CFG/Sample2/3-5/dynamic_morph.wav"  type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+<a href="index.html"><strong>Return index page</strong></a>
+<hr>
+<h2>Reference</h2>
+
+<p>[1] Ho, J., & Salimans, T. (2022). Classifier-free diffusion guidance. arXiv preprint arXiv:2207.12598.</p>
+
+<p>[2] Liu, H., Yuan, Y., Liu, X., Mei, X., Kong, Q., Tian, Q., ... & Plumbley, M. D. (2024). Audioldm 2: Learning holistic audio generation with self-supervised pretraining. IEEE/ACM Transactions on Audio, Speech, and Language Processing.</p>
+
+<p>[3] Yang, Z., Yu, Z., Xu, Z., Singh, J., Zhang, J., Campbell, D., ... & Hartley, R. (2023). Impus: Image morphing with perceptually-uniform sampling using diffusion models. arXiv preprint arXiv:2311.06792. </p>
+</body>
+</html>
